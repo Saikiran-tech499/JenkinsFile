@@ -2,26 +2,43 @@ pipeline {
     agent any
 
     stages {
-
-        stage('newpipeline') {
+        stage('SampleBuildJob') {
             steps {
-                build job: 'newpipeline'
+                echo 'SampleBuildJob'
+            }
+        }
+
+        stage('SampleDeployJob') {
+            steps {
+                echo 'SampleDeployJob'
+            }
+        }
+
+        stage('SampleTestJob') {
+            steps {
+                echo 'SampleTestJob'
+            }
+        }
+
+        stage('SampleReleaseJob') {
+            steps {
+                echo 'SampleReleaseJob'
             }
         }
     }
- 
 
     post {
+        always {
+            echo 'Pipeline execution completed.'
+        }
+
         success {
-            echo 'All jobs executed successfully.'
+            echo 'Pipeline execution successful.'
         }
 
         failure {
             echo 'Pipeline execution failed.'
         }
-
-        always {
-            echo 'Pipeline execution completed.'
-        }
     }
 }
+
