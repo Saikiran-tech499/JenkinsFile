@@ -1,0 +1,44 @@
+pipeline {
+    agent any
+
+    stages {
+
+        stage('Build Job') {
+            steps {
+                build job: 'Job1_Build'
+            }
+        }
+
+        stage('Test Job') {
+            steps {
+                build job: 'Job2_Test'
+            }
+        }
+
+        stage('Automation Job') {
+            steps {
+                build job: 'Job3_Automation'
+            }
+        }
+
+        stage('Deploy Job') {
+            steps {
+                build job: 'Job4_Deploy'
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'All jobs executed successfully.'
+        }
+
+        failure {
+            echo 'Pipeline execution failed.'
+        }
+
+        always {
+            echo 'Pipeline execution completed.'
+        }
+    }
+}
