@@ -3,30 +3,13 @@ pipeline {
 
     stages {
 
-        stage('Build Job') {
+        stage('newpipeline') {
             steps {
-                build job: 'Job1_Build'
-            }
-        }
-
-        stage('Test Job') {
-            steps {
-                build job: 'Job2_Test'
-            }
-        }
-
-        stage('Automation Job') {
-            steps {
-                build job: 'Job3_Automation'
-            }
-        }
-
-        stage('Deploy Job') {
-            steps {
-                build job: 'Job4_Deploy'
+                build job: 'newpipeline'
             }
         }
     }
+ }
 
     post {
         success {
